@@ -10,7 +10,7 @@ const App = () => {
     <div className="container">
       <Navigation />
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/goit-react-hw-04-movies" component={HomePage} />
         <Route path="/movies/:movieID" component={MoviesDetailsPage} />
         <Route path="/movies" component={MoviesPage} />
         <Route component={NotFoundView} />
