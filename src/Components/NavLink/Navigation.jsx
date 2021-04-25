@@ -9,7 +9,7 @@ const Navigation = () => {
           exact
           className="nav__link"
           activeClassName="nav__link--active"
-          to="/"
+          to="/goit-react-hw-04-movies"
         >
           Home
         </NavLink>
