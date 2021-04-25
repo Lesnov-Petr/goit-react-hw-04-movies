@@ -1,0 +1,11 @@
+.actorIMG {
+  width: 100px;
+}
+
+.itemActor {
+  display: inline-block;
+  width: calc((100%-30px * 5) / 6);
+  // border: solid 1px black;
+  // border-color: black;
+  // border-style: solid;
+}

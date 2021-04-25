@@ -1,0 +1,101 @@
+@import "../../sass/mixin";
+@import "../../sass/variables";
+
+.movie {
+  display: flex;
+}
+
+.movie__description {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.movie__img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.movie__title {
+  margin: 0;
+  display: flex;
+  color: $dark-text-color;
+
+  @include for-size(mobile) {
+    @include font(500, 20px, 1.15);
+  }
+
+  @include for-size(desktop) {
+    @include font(500, 30px, 1.17);
+  }
+}
+
+.movie__keys {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.movie__keyItem {
+  display: flex;
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.movie__key {
+  display: flex;
+  min-width: 69px;
+  margin: 0;
+}
+
+.movie__value {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  color: $dark-text-color;
+  @include font(500, 12px, 1.17);
+}
+
+.genre {
+  display: flex;
+  margin: 0;
+  margin-right: 4px;
+  flex-direction: column;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.movie__listGenres {
+  margin: 0;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  min-width: 36px;
+  border-radius: 5px;
+
+  color: $light-text-color;
+  background-color: $accent-color;
+}
+
+.movie__about {
+  color: $dark-text-color;
+  @include font(500, 12xp, 1.33);
+  margin-bottom: 10px;
+}
+
+.movie__text {
+  color: $dark-text-color;
+  margin-bottom: 20px;
+  @include font(500, 12xp, 1.67);
+  font-family: "Roboto";
+}

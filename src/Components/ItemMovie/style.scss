@@ -1,0 +1,76 @@
+@import "../../sass/mixin";
+@import "../../sass/variables";
+
+body {
+  background-color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1090px;
+  padding: 60px 0;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.itemMovie {
+  margin-right: 30px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.film-card {
+  cursor: pointer;
+  height: 440;
+  margin-bottom: 30px;
+
+  @include for-size(desktop) {
+    width: calc((100% - 30px * 3) / 4);
+
+    &:not(:nth-child(4n)) {
+      margin-right: 30px;
+    }
+
+    &:not(:nth-last-child(-n + 4)) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.film-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.img-wrapper {
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  max-height: 140px;
+}
+
+.film-title {
+  @include font(500, 12px, 1.17);
+  text-transform: uppercase;
+  color: $dark-text-color;
+}
+
+.back {
+  width: 200px;
+  margin-bottom: 10px;
+}
