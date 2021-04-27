@@ -7,24 +7,17 @@ const ItemMovieID = ({
   vote_average,
   backdrop_path,
   genres,
+  onGoToBack,
 }) => {
-  // const handleGoBack = () => {
-  //   const { history } = this.props;
-  //   const { location } = this.state;
-  //   const home = routes.find((route) => route.label === "Home");
-  //   history.push({
-  //     pathname: location || home.path,
-  //     state: this.props.location.state,
-  //   });
-  // };
-
   const baseImgURL = backdrop_path
     ? `https://image.tmdb.org/t/p/w500${backdrop_path}`
     : "https://серебро.рф/img/placeholder.png";
 
   return (
     <>
-      <button className="back">Go to back</button>
+      <button className="back" type="button" onClick={() => onGoToBack()}>
+        Go to back
+      </button>
       <div className="movie">
         <div className="box__img">
           <img className="movie__img" src={baseImgURL} alt={title} />

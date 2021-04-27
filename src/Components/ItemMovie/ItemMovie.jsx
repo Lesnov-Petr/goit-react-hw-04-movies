@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
-const ItemMovie = ({ movie }) => {
+const ItemMovie = ({ movie, location }) => {
   const {
     id,
     backdrop_path,
@@ -11,12 +12,17 @@ const ItemMovie = ({ movie }) => {
     vote_average,
   } = movie;
 
+  const [linkTo, setLinkTo] = useState({
+    pathname: `/movies/${id}`,
+    state: { from: location },
+  });
+
   const baseImgURL = backdrop_path
     ? `https://image.tmdb.org/t/p/w500${backdrop_path}`
     : "https://серебро.рф/img/placeholder.png";
   return (
     <li className="film-card">
-      <Link to={`/movies/${id}`}>
+      <Link to={linkTo}>
         <div className="img-wrapper">
           <img className="film-img" src={baseImgURL} alt={title} />
         </div>

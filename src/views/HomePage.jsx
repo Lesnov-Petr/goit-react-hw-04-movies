@@ -5,6 +5,7 @@ import GalleryMovies from "../Components/GalleryMovies";
 class Home extends Component {
   state = {
     movies: [],
+    location: this.props.location,
   };
 
   async componentDidMount() {
@@ -16,7 +17,8 @@ class Home extends Component {
   }
 
   render() {
-    return <GalleryMovies movies={this.state.movies} />;
+    const { movies, location } = this.state;
+    return <GalleryMovies movies={movies} location={location} />;
   }
 }
 

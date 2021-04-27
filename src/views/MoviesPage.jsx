@@ -6,6 +6,7 @@ import GalleryMovies from "../Components/GalleryMovies";
 class MoviesPage extends Component {
   state = {
     movies: [],
+    location: this.props.location,
   };
 
   handleSearchMovies = async (search) => {
@@ -16,11 +17,11 @@ class MoviesPage extends Component {
   };
 
   render() {
-    const { movies } = this.state;
+    const { movies, location } = this.state;
     return (
       <>
         <Form onHandleSearchMovies={this.handleSearchMovies} />
-        <GalleryMovies movies={movies} isLink={this.props.match.url} />
+        <GalleryMovies movies={movies} location={location} />
       </>
     );
   }

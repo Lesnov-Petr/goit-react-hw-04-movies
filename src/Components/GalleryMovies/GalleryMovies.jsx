@@ -1,10 +1,10 @@
 import ItemMovie from "../ItemMovie";
 
-const GalleryMovies = ({ movies, isLink }) => {
+const GalleryMovies = ({ movies, location }) => {
   return (
     <ul className="gallery">
       {movies.map((movie) => (
-        <ItemMovie movie={movie} key={movie.id} isLink={isLink} />
+        <ItemMovie movie={movie} key={movie.id} location={location} />
       ))}
     </ul>
   );

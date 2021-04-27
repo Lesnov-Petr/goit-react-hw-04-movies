@@ -22,6 +22,13 @@ class MoviesDetailsPage extends Component {
     this.setState({ ...response });
   }
 
+  handleGoToBack = () => {
+    const { location, history } = this.props;
+    console.log(location);
+
+    history.push(location?.state?.from || "/goit-react-hw-04-movies");
+  };
+
   render() {
     const {
       id,
@@ -41,6 +48,7 @@ class MoviesDetailsPage extends Component {
           vote_average={vote_average}
           backdrop_path={backdrop_path}
           genres={genres}
+          onGoToBack={this.handleGoToBack}
         />
         <MovieInfoBox id={id} />
       </>
