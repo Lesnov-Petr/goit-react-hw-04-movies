@@ -6,14 +6,35 @@ import GalleryMovies from "../Components/GalleryMovies";
 class MoviesPage extends Component {
   state = {
     movies: [],
-    location: this.props.location,
+    location: {},
+    searchLocation: this.props.location?.search || "",
   };
 
+  componentDidMount() {
+    const { searchLocation } = this.state;
+
+    searchLocation && this.handleSearchMovies(searchLocation);
+  }
+
   handleSearchMovies = async (search) => {
+    const { location, history } = this.props;
     const response = await ApiService.fetchSearchMovies(search).catch((error) =>
       console.log(error)
     );
-    this.setState({ movies: response });
+
+    if (location.search !== `?query=${search}`) {
+      history.push({
+        search: `?query=${search}`,
+      });
+    }
+
+    this.setState({
+      movies: response,
+      location: location,
+      searchLocation: search,
+    });
+
+    location.search = search;
   };
 
   render() {

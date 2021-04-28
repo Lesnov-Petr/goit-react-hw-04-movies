@@ -1,20 +1,28 @@
+import { Suspense, lazy } from "react";
 import { Route, Switch } from "react-router-dom";
-import HomePage from "./views/HomePage";
-import MoviesPage from "./views/MoviesPage";
-import MoviesDetailsPage from "./views/MovieDetailsPage";
-import NotFoundView from "./views/NotFoundView";
-import Navigation from "./Components/NavLink";
+import Loader from "react-loader-spinner";
+const HomePage = lazy(() => import("./views/HomePage"));
+const MoviesPage = lazy(() => import("./views/MoviesPage"));
+const MoviesDetailsPage = lazy(() => import("./views/MovieDetailsPage"));
+const NotFoundView = lazy(() => import("./views/NotFoundView"));
+const Navigation = lazy(() => import("./Components/NavLink"));
 
 const App = () => {
   return (
     <div className="container">
-      <Navigation />
-      <Switch>
-        <Route exact path="/goit-react-hw-04-movies" component={HomePage} />
-        <Route path="/movies/:movieID" component={MoviesDetailsPage} />
-        <Route path="/movies" component={MoviesPage} />
-        <Route component={NotFoundView} />
-      </Switch>
+      <Suspense
+        fallback={
+          <Loader type="Puff" color="#00BFFF" height={100} width={100} />
+        }
+      >
+        <Navigation />
+        <Switch>
+          <Route exact path="/goit-react-hw-04-movies" component={HomePage} />
+          <Route path="/movies/:movieID" component={MoviesDetailsPage} />
+          <Route path="/movies" component={MoviesPage} />
+          <Route component={NotFoundView} />
+        </Switch>
+      </Suspense>
     </div>
   );
 };

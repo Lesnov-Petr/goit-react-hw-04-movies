@@ -12,7 +12,7 @@ const ItemMovie = ({ movie, location }) => {
     vote_average,
   } = movie;
 
-  const [linkTo, setLinkTo] = useState({
+  const [linkTo] = useState({
     pathname: `/movies/${id}`,
     state: { from: location },
   });
