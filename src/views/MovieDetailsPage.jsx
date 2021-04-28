@@ -38,6 +38,7 @@ class MoviesDetailsPage extends Component {
       backdrop_path,
       genres,
     } = this.state;
+    const { location } = this.props;
     return (
       <>
         <ItemMovieID
@@ -49,7 +50,7 @@ class MoviesDetailsPage extends Component {
           genres={genres}
           onGoToBack={this.handleGoToBack}
         />
-        <MovieInfoBox id={id} />
+        <MovieInfoBox id={id} isLocation={location} />
       </>
     );
   }

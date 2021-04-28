@@ -27,14 +27,12 @@ class MoviesPage extends Component {
         search: `?query=${search}`,
       });
     }
-
     this.setState({
       movies: response,
       location: location,
       searchLocation: search,
     });
-
-    location.search = search;
+    location.search = `${search}`;
   };
 
   render() {
