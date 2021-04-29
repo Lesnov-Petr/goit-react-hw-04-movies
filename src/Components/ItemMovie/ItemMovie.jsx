@@ -12,10 +12,10 @@ const ItemMovie = ({ movie, location }) => {
     vote_average,
   } = movie;
 
-  const [linkTo] = useState({
+  const linkTo = {
     pathname: `/movies/${id}`,
     state: { from: location },
-  });
+  };
 
   const baseImgURL = backdrop_path
     ? `https://image.tmdb.org/t/p/w500${backdrop_path}`

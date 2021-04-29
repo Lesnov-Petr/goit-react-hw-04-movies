@@ -25,7 +25,7 @@ class MoviesDetailsPage extends Component {
   handleGoToBack = () => {
     const { location, history } = this.props;
 
-    history.push(location?.state?.from || "/goit-react-hw-04-movies");
+    history.push(location?.state?.from || "/");
   };
 
   render() {
